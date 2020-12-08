@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import TodoItemContainer from '../Containers/TodoItemContainer';
 
-import TodoItem from './TodoItem';
 
 export default class TodoListGroup extends Component {
+    shouldComponentUpdate = () => {
+        console.log("testing123")
+        return true;
+    }
     render() {
         return this.props.todoList.map((item) =>
-            <TodoItem key={item.id} id={item.id}/>
+            <TodoItemContainer key={item.id} item={item}/>
         )
     }
 }
