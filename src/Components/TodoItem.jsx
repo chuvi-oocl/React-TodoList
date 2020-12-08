@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
+import './components.css';
 
 export default class TodoListGroup extends Component {
     constructor(props){
         super(props);
-    }
-
-    shouldComponentUpdate(prevProp){
-        console.log(prevProp.todoList)
-        console.log(this.props.todoList)
-        if(prevProp.todoList != this.props.todoList){
-            console.log("testing");
-        }
-        return true;
     }
 
     onToggleDone = () => {
@@ -24,10 +16,11 @@ export default class TodoListGroup extends Component {
 
     render() {
         const {text, done, id} = this.props.item;
-        const todoTextStyle = done ? { textDecorationLine: 'line-through', textDecorationStyle: 'solid'} : {};
+        const todoTextGenStyle = {backgroundColor: 'lightgray'}
+        const todoTextStyle = done ? {...todoTextGenStyle,textDecorationLine: 'line-through', textDecorationStyle: 'solid'} : todoTextGenStyle;
         return (
-            <div className={text && done?"true":"false"} >
-                <span style={todoTextStyle} onClick={this.onToggleDone} >{text}</span>
+            <div>
+                <label style={todoTextStyle} onClick={this.onToggleDone}  >{text}</label>
                 <input type="button" value="X" onClick={this.deleteItem}></input>
             </div>
         
