@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { addNewTodo } from "../../Apis/todos";
 
 export default class TodoGenerator extends Component {
   constructor(props) {
@@ -13,7 +14,9 @@ export default class TodoGenerator extends Component {
   };
 
   submitTodo = () => {
-    this.props.create(this.state.todo);
+    addNewTodo(this.state.todo).then(response => {
+      this.props.create(response.data);
+    });
     this.setState({ todo: "" });
   };
 

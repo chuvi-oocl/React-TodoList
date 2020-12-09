@@ -5,12 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const todoList = (state = [], action) => {
     if (action.type === CREATE) {
-        let newTodoItem = {
-            id: uuidv4(),
-            text: action.payload,
-            done: false
-        }
-        return state.concat([newTodoItem]);
+        return state.concat([action.todoItem]);
     }
     else if (action.type === TOGGLE_DONE) {
         return state.map(todoItem => {

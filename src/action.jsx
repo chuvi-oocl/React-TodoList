@@ -1,9 +1,9 @@
 import { CREATE, TOGGLE_DONE, DELETE, INIT_TODO_LIST } from "./actionTypes"
 
-export const create = (todoTask) => {
+export const create = (todoItem) => {
     return{
         type: CREATE,
-        payload: todoTask
+        todoItem
     }
 }
 
