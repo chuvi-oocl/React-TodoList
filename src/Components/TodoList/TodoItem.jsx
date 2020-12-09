@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
 import { Button, Row, Col, Select } from "antd";
-import { DeleteTwoTone } from "@ant-design/icons";
+import { DeleteOutlined } from "@ant-design/icons";
 
 import { deleteTodo, updateTodo } from "../../Apis/todos";
+import {getLabelColor} from '../labelHelpers'
 
 export default class TodoListGroup extends Component {
   onToggleDone = () => {
@@ -57,15 +58,16 @@ export default class TodoListGroup extends Component {
         
         <Col span={3}>
           <Select mode="tags" style={{ width: '100%' }} onChange={this.handleLabelChange} value={labels}>
-            {tagsOptions.map((item) => (<Select key={item}>{item}</Select>))}
+            {tagsOptions.map((label) => (<Select key={label} style={{backgroundColor: getLabelColor(label)}}>{label}</Select>))}
           </Select>
         </Col>
         <Col span={1}>
           <Button
             type="secondary"
             shape="circle"
-            icon={<DeleteTwoTone twoToneColor="#777" />}
+            icon={<DeleteOutlined />}
             onClick={this.deleteItem}
+            danger
           />
         </Col>
       </Row>

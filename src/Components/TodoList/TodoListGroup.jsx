@@ -21,10 +21,6 @@ export default class TodoListGroup extends Component {
     this.setState({ keyword: event.target.value });
   };
 
-  onSearch = () => {
-    alert("onsearch");
-  };
-
   render() {
     const { todoList } = this.props;
     const { keyword } = this.state;
