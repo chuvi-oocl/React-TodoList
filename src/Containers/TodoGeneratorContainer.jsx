@@ -1,14 +1,14 @@
-import {connect} from 'react-redux';
-import { create } from '../action';
+import { connect } from "react-redux";
+import { create } from "../action";
 
-import TodoGenerator from '../Components/TodoList/TodoGenerator'
+import TodoGenerator from "../Components/TodoList/TodoGenerator";
 
-const mapDispatchToProps = dispatch => {
-    return{
-        create: (todoTask) => {
-            dispatch(create(todoTask));
-        },
-    };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    create: (todoTask) => {
+      dispatch(create(todoTask));
+    },
+  };
 };
 
 const TodoGeneratorContainer = connect(null, mapDispatchToProps)(TodoGenerator);

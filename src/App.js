@@ -1,10 +1,11 @@
-import './App.css';
-import { BrowserRouter, Link, Route, NotFoundRoute, Switch, Redirect  } from 'react-router-dom';
+import { BrowserRouter, Link, Redirect, Route, Switch } from 'react-router-dom';
 
-import TodoList from './Components/TodoList/TodoList';
-import DoneList from './Components/DoneList';
+import './App.css';
+
 import NotFoundPage from './Components/NotFound';
+import TodoList from './Components/TodoList/TodoList';
 import DoneListContainer from './Containers/DoneListContainer';
+
 
 function App() {
   return (
