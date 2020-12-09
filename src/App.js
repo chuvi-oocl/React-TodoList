@@ -1,6 +1,7 @@
 import { BrowserRouter, Link, Redirect, Route, Switch } from 'react-router-dom';
 
 import './App.css';
+import Navigation from './Components/Navigation';
 
 import NotFoundPage from './Components/NotFound';
 import TodoList from './Components/TodoList/TodoList';
@@ -14,10 +15,7 @@ function App() {
         <h1>Hello, React!</h1>
       </header>
       <BrowserRouter>
-        <ul>
-          <li><Link to="/">go to list page</Link></li>
-          <li><Link to="/done">go to done page</Link></li>
-        </ul>
+      <Navigation/>
         <Switch>
           <Route exact path="/done" component={DoneListContainer}></Route>
           <Route exact path="/" component={TodoList}></Route>

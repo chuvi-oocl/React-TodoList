@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { addNewTodo } from "../../Apis/todos";
+import { Button, Input, Row, Col } from "antd";
+import { EnterOutlined } from "@ant-design/icons";
 
 export default class TodoGenerator extends Component {
   constructor(props) {
@@ -14,7 +16,7 @@ export default class TodoGenerator extends Component {
   };
 
   submitTodo = () => {
-    addNewTodo(this.state.todo).then(response => {
+    addNewTodo(this.state.todo).then((response) => {
       this.props.create(response.data);
     });
     this.setState({ todo: "" });
@@ -24,10 +26,26 @@ export default class TodoGenerator extends Component {
     const { todo } = this.state;
 
     return (
-      <div>
-        <input type="text" value={todo} onChange={this.changeTodo} />
-        <input type="submit" onClick={this.submitTodo} />
-      </div>
+      <Row justify="center" align="middle">
+        <Col span={6} offset={1}>
+          <Input
+            placeholder="New Todo..."
+            value={todo}
+            onChange={this.changeTodo}
+          />
+        </Col>
+        <Col span={2}>
+          <Button
+            type="secondary"
+            shape="round"
+            icon={<EnterOutlined />}
+            onClick={this.deleteItem}
+            onClick={this.submitTodo}
+          >
+            Submit
+          </Button>
+        </Col>
+      </Row>
     );
   }
 }

@@ -1,18 +1,53 @@
 import React, { Component } from "react";
+import { Input, Row, Col} from "antd";
 import { getTodoList } from "../../Apis/todos";
 import TodoItemContainer from "../../Containers/TodoItemContainer";
 
 export default class TodoListGroup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      keyword: "",
+    };
+  }
   componentDidMount() {
     getTodoList().then((response) => {
       this.props.initTodoList(response.data);
     });
   }
 
+  changeKeyword = (event) => {
+    this.setState({ keyword: event.target.value });
+  };
+
+  onSearch = () => {
+    alert("onsearch");
+  };
+
   render() {
     const { todoList } = this.props;
-    return todoList.map((item) => (
-      <TodoItemContainer key={item.id} item={item} />
-    ));
+    const { keyword } = this.state;
+    return (
+      <div>
+        <Row justify="center" align="top" gutter={[4, 8]}>
+          <Col span={8}>
+            <Input
+              placeholder="filter..."
+              value={keyword}
+              onChange={this.changeKeyword}
+              onSearch={this.onSearch}
+            />
+          </Col>
+        </Row>
+        {todoList
+          .filter(function (item) {
+            return keyword == '' ? true:
+            item.text.indexOf(keyword) >= 0;
+          })
+          .map((item) => (
+            <TodoItemContainer key={item.id} item={item} />
+          ))}
+      </div>
+    );
   }
 }
