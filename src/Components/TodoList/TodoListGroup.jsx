@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Input, Row, Col} from "antd";
+import { Input, Row, Col } from "antd";
 import { getTodoList } from "../../Apis/todos";
 import TodoItemContainer from "../../Containers/TodoItemContainer";
 import TodoListFilter from "./TodoListFilter";
@@ -9,7 +9,7 @@ export default class TodoListGroup extends Component {
     super(props);
     this.state = {
       keyword: "",
-      tagsOptions: ["Testing","Buy","Everyday"]
+      tagsOptions: ["Testing", "Buy", "Everyday"],
     };
   }
   componentDidMount() {
@@ -31,14 +31,19 @@ export default class TodoListGroup extends Component {
     const { keyword } = this.state;
     return (
       <div>
-        <TodoListFilter keyword={keyword} changeKeyword={this.changeKeyword}/>
+        <TodoListFilter keyword={keyword} changeKeyword={this.changeKeyword} />
         {todoList
           .filter(function (item) {
-            return keyword == '' ? true:
-            item.text.indexOf(keyword) >= 0;
+            return keyword == ""
+              ? true
+              : item.text.indexOf(keyword) >= 0 || item.labels.toString().indexOf(keyword) >= 0;
           })
           .map((item) => (
-            <TodoItemContainer key={item.id} item={item} tagsOptions={this.state.tagsOptions}/>
+            <TodoItemContainer
+              key={item.id}
+              item={item}
+              tagsOptions={this.state.tagsOptions}
+            />
           ))}
       </div>
     );
