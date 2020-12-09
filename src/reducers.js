@@ -24,7 +24,7 @@ const todoList = (state = [], action) => {
         return state.filter(todoItem => todoItem.id !== action.payload);
     }
     else if(action.type === INIT_TODO_LIST){
-        return action.payload
+        return action.todoList
     }
     return state
 }

@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 export default class TodoListGroup extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   onToggleDone = () => {
     this.props.toggleDone(this.props.item.id);
   };
@@ -14,7 +10,7 @@ export default class TodoListGroup extends Component {
   };
 
   render() {
-    const { text, done, id } = this.props.item;
+    const { text, done } = this.props.item;
     const todoTextGenStyle = { backgroundColor: "lightgray" };
     const todoTextStyle = done
       ? {

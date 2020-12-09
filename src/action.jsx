@@ -24,6 +24,6 @@ export const deleteItem = (id) => {
 export const initTodoList = (todoList) => {
     return {
         type: INIT_TODO_LIST,
-        payload: todoList
+        todoList
     }
 }

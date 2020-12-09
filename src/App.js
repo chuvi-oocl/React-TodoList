@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <span>TodoList</span>
+        <h1>Hello, React!</h1>
       </header>
       <BrowserRouter>
         <ul>
