@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Input, Row, Col} from "antd";
 import { getTodoList } from "../../Apis/todos";
 import TodoItemContainer from "../../Containers/TodoItemContainer";
+import TodoListFilter from "./TodoListFilter";
 
 export default class TodoListGroup extends Component {
   constructor(props) {
@@ -29,16 +30,7 @@ export default class TodoListGroup extends Component {
     const { keyword } = this.state;
     return (
       <div>
-        <Row justify="center" align="top" gutter={[4, 8]}>
-          <Col span={8}>
-            <Input
-              placeholder="filter..."
-              value={keyword}
-              onChange={this.changeKeyword}
-              onSearch={this.onSearch}
-            />
-          </Col>
-        </Row>
+        <TodoListFilter keyword={keyword} changeKeyword={this.changeKeyword}/>
         {todoList
           .filter(function (item) {
             return keyword == '' ? true:
