@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import Navigation from './Components/Navigation';

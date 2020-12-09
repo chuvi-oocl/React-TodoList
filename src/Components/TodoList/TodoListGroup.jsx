@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Input, Row, Col } from "antd";
 import { getTodoList } from "../../Apis/todos";
 import TodoItemContainer from "../../Containers/TodoItemContainer";
 import TodoListFilter from "./TodoListFilter";
@@ -34,7 +33,7 @@ export default class TodoListGroup extends Component {
         <TodoListFilter keyword={keyword} changeKeyword={this.changeKeyword} />
         {todoList
           .filter(function (item) {
-            return keyword == ""
+            return keyword === ""
               ? true
               : item.text.indexOf(keyword) >= 0 || item.labels.toString().indexOf(keyword) >= 0;
           })

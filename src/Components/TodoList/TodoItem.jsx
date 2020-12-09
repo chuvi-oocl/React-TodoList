@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Button, Row, Col, Select } from "antd";
-import { DeleteTwoTone, PlusOutlined } from "@ant-design/icons";
+import { DeleteTwoTone } from "@ant-design/icons";
 
 import { deleteTodo, updateTodo } from "../../Apis/todos";
 
