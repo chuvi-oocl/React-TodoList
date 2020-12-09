@@ -1,12 +1,19 @@
 import React, { Component } from "react";
+import { deleteTodo, updateDoneStatus } from "../../Apis/todos";
 
 export default class TodoListGroup extends Component {
   onToggleDone = () => {
-    this.props.toggleDone(this.props.item.id);
+    const { id, done } = this.props.item;
+    updateDoneStatus(id, !done).then(() => {
+      this.props.toggleDone(id);
+    });
   };
 
   deleteItem = () => {
-    this.props.deleteItem(this.props.item.id);
+    const { id } = this.props.item;
+    deleteTodo(id).then(() => {
+      this.props.deleteItem(id);
+    });
   };
 
   render() {
