@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import TodoItem from '../Components/TodoItem'
+import TodoItem from '../Components/TodoList/TodoItem'
 import {deleteItem, toggleDone} from '../action'
 
 const mapDispatchToProps = dispatch => {

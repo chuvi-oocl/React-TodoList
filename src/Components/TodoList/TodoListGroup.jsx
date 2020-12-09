@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import TodoItemContainer from '../Containers/TodoItemContainer';
-
-
+import TodoItemContainer from '../../Containers/TodoItemContainer';
 
 export default class TodoListGroup extends Component {
     render() {
