@@ -11,7 +11,7 @@ export default class DoneList extends Component {
         }
         return (
             <div>
-                <h2>DoneList</h2>
+                <h2>Completed Tasks</h2>
                 {this.props.doneList.map((item) =>
                 
                     <Row justify="center" align="middle" gutter={[2, 8]}>

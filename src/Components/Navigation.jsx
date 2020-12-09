@@ -6,12 +6,12 @@ import { CheckCircleOutlined, EditOutlined} from '@ant-design/icons';
 export default class Navigation extends Component {
     render(){
         return (
-            <Menu  mode="horizontal">
+            <Menu mode="horizontal">
                 <Menu.Item key="list" icon={<EditOutlined />}>
-                    <Link to="/">List page</Link>
+                    <Link to="/">To-do tasks</Link>
                 </Menu.Item>
                 <Menu.Item key="done" icon={<CheckCircleOutlined />}>
-                    <Link to="/done">Done page</Link>
+                    <Link to="/done">Completed tasks</Link>
                 </Menu.Item>
             </Menu>
             
