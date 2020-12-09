@@ -9,6 +9,7 @@ export default class TodoListGroup extends Component {
     super(props);
     this.state = {
       keyword: "",
+      tagsOptions: ["Testing","Buy","Everyday"]
     };
   }
   componentDidMount() {
@@ -37,7 +38,7 @@ export default class TodoListGroup extends Component {
             item.text.indexOf(keyword) >= 0;
           })
           .map((item) => (
-            <TodoItemContainer key={item.id} item={item} />
+            <TodoItemContainer key={item.id} item={item} tagsOptions={this.state.tagsOptions}/>
           ))}
       </div>
     );

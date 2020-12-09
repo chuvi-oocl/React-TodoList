@@ -11,7 +11,8 @@ export const addNewTodo = (text) => {
 export const updateTodo = (todo) => {
     return api.put("/todos/" + todo.id, {
         text : todo.text,
-        done : todo.done
+        done : todo.done,
+        labels: todo.labels
     });
 }
 

@@ -39,7 +39,6 @@ export default class TodoGenerator extends Component {
             type="secondary"
             shape="round"
             icon={<EnterOutlined />}
-            onClick={this.deleteItem}
             onClick={this.submitTodo}
           >
             Submit

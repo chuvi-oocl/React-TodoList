@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import { Button, Row, Col } from "antd";
-import { DeleteTwoTone } from "@ant-design/icons";
+import { Button, Row, Col, Select } from "antd";
+import { DeleteTwoTone, PlusOutlined } from "@ant-design/icons";
 
 import { deleteTodo, updateTodo } from "../../Apis/todos";
 
@@ -20,8 +20,17 @@ export default class TodoListGroup extends Component {
     });
   };
 
+  handleLabelChange = (newLabel) => {
+    const { item } = this.props;
+    updateTodo({ ...item, labels: newLabel }).then((response) => {
+      this.props.updateLabels(response.data.id, response.data.labels);
+    });
+
+  }
+
   render() {
-    const { text, done } = this.props.item;
+    const { item, tagsOptions } = this.props;
+    const { text, done, labels } = item;
     const todoTextGenStyle = {
       textAlign: "left",
       border: "2px solid lightgrey",
@@ -45,7 +54,13 @@ export default class TodoListGroup extends Component {
             {text}
           </p>
         </Col>
-        <Col span={2}>
+        
+        <Col span={3}>
+          <Select mode="tags" style={{ width: '100%' }} onChange={this.handleLabelChange} value={labels}>
+            {tagsOptions.map((item) => (<Select key={item}>{item}</Select>))}
+          </Select>
+        </Col>
+        <Col span={1}>
           <Button
             type="secondary"
             shape="circle"

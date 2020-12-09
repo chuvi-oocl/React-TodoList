@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { CREATE, TOGGLE_DONE, DELETE, INIT_TODO_LIST } from './actionTypes';
+import { CREATE, TOGGLE_DONE, DELETE, INIT_TODO_LIST, UPDATE_LABELS } from './actionTypes';
 
 const todoList = (state = [], action) => {
     if (action.type === CREATE) {
@@ -18,6 +18,14 @@ const todoList = (state = [], action) => {
     }
     else if(action.type === INIT_TODO_LIST){
         return action.todoList
+    }
+    else if (action.type === UPDATE_LABELS){
+        return state.map(todoItem => {
+            if (todoItem.id === action.id) {
+                return { ...todoItem, labels: action.labels };
+            }
+            return { ...todoItem };
+        });
     }
     return state
 }
