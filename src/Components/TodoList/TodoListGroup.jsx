@@ -31,6 +31,10 @@ export default class TodoListGroup extends Component {
           .filter(function (item) {
             return keyword === ""
               ? true
+              : keyword === "todo"
+              ? !item.done 
+              :keyword === "done"
+              ? item.done
               : item.text.indexOf(keyword) >= 0 || item.labels.toString().indexOf(keyword) >= 0;
           })
           .map((item) => (

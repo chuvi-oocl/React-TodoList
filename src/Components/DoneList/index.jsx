@@ -20,7 +20,9 @@ export default class DoneList extends Component {
     const doneItemStyle = {
       textAlign: "left",
       border: "2px solid lightgrey",
-      paddingLeft: "5px",
+      paddingLeft: '5px',
+      paddingTop : '3px',
+      paddingBottom:'3px'
     };
     return (
       <div>

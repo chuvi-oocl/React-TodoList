@@ -10,7 +10,8 @@ export default class TodoListFilter extends Component {
         <Col span={8}>
           <Input
             addonBefore="Filter "
-            placeholder="filter..."
+            placeholder="filter by task / tags"
+            allowClear
             value={keyword}
             onChange={changeKeyword}
           />
