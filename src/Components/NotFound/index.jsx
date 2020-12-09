@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Alert } from 'antd';
 
 export default class NotFoundPage extends Component {
     render() {
         return (
             <div>
-                <h1>Page Not Found</h1>
+                <Alert message="Page Not Found" type="error" showIcon/>
             </div>
         )
     }

@@ -9,7 +9,7 @@ export default class TodoListFilter extends Component {
       <Row justify="center" align="top" gutter={[4, 8]}>
         <Col span={8}>
           <Input
-            addonBefore="Filter: "
+            addonBefore="Filter "
             placeholder="filter..."
             value={keyword}
             onChange={changeKeyword}
