@@ -6,7 +6,7 @@ export default class DoneList extends Component {
             <div>
                 DoneList
                 {this.props.doneList.map((item) =>
-                    <div>{item.text}</div>                
+                    <div key={item.id}>{item.text}</div>                
                 )}
             </div>
         )

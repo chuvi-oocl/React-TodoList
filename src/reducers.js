@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { CREATE, TOGGLE_DONE, DELETE } from './actionTypes';
+import { CREATE, TOGGLE_DONE, DELETE, INIT_TODO_LIST } from './actionTypes';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -22,6 +22,9 @@ const todoList = (state = [], action) => {
     }
     else if (action.type === DELETE) {
         return state.filter(todoItem => todoItem.id !== action.payload);
+    }
+    else if(action.type === INIT_TODO_LIST){
+        return action.payload
     }
     return state
 }
